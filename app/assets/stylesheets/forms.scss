@@ -1,0 +1,54 @@
+$mainColor: cornsilk;
+$mainBackground: dimgrey;
+$link: skyblue;
+$link_hovered: mediumblue;
+$alert: darkorange;
+
+.forms {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: $mainColor;
+  background-color: $mainBackground;
+
+  a {
+    color: $link;
+    &:hover {
+      color: $link_hovered;
+    }
+  }
+}
+
+.new_session, form.new_user {
+  color: $alert;
+  input {
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+  }
+  button {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 2px 10px;
+    border-radius: 5px;
+  }
+}
+
+form.new_user {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: $mainColor;
+  background-color: $mainBackground;
+  span {
+    color: $alert;
+  }
+}
+

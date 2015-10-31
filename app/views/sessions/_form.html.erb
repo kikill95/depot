@@ -1,9 +1,9 @@
 <% unless current_user %>
     <%= form_for @session, url: session_path, remote: true do |f| %>
-      <%= f.text_field :email %>
-      <%= @session.errors[:email].first %>
-      <%= f.password_field :password %>
-      <%= @session.errors[:password].first %>
-      <%= f.button 'OK', data: { disable_with: 'Loading...' } %>
+        <%= f.text_field :email %>
+        <%= f.password_field :password %>
+        <%= @session.errors[:email].first %>
+        <%= @session.errors[:password].first %>
+        <%= f.button 'OK', data: { disable_with: 'Loading...' } %>
     <% end %>
 <% end %>

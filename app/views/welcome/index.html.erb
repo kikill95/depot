@@ -1,11 +1,11 @@
 <div class="forms">
     <% if current_user %>
         <%= current_user.email %>
-        <%= link_to 'Sign Out', session_path, method: :delete %>
+        <%= link_to 'Sign Out', session_path, remote: true, method: :delete %>
     <% else %>
     <p>
       Don't have an account?
-      <%= link_to 'Click here', new_user_path %>
+      <%= link_to 'Click here', new_user_path, remote: true %>
       <div>-- or --</div>
       <div>Sign in </div>
     </p>

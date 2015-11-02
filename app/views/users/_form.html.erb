@@ -1,0 +1,20 @@
+<%= form_for @user, url: user_path, remote: true do |f| %>
+    <p>
+        <%= f.label :email, autofocus: true %>
+        <br>
+        <%= f.text_field :email %>
+        <span><%= @user.errors[:email].first %></span>
+    </p>
+    <p>
+        <%= f.label :password %>
+        <br>
+        <%= f.password_field :password %>
+        <span><%= @user.errors[:password].first %></span>
+    </p>
+    <p>
+        <%= f.label :password_confirmation %>
+        <br>
+        <%= f.password_field :password_confirmation %>
+    </p>
+    <%= f.submit :OK, data: { disable_with: 'Loading...' } %>
+<% end %>

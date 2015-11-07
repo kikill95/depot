@@ -1,22 +1,5 @@
-<<<<<<< HEAD
-<% unless current_user %>
-    <%= form_for @session, url: session_path, remote: true do |f| %>
-        <p>
-          Don't have an account?
-          <%= link_to 'Click here', new_user_path, remote: true %>
-        </p>
-        <div>-- or --</div>
-        <div>Sign in </div>
-        <%= f.text_field :email %>
-        <%= f.password_field :password %>
-        <%= @session.errors[:email].first %>
-        <%= @session.errors[:password].first %>
-        <%= f.button 'OK', data: { disable_with: 'Loading...' } %>
-    <% end %>
-=======
 <%= simple_form_for user_session, url: session_path, remote: true do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.button :button, :OK, class: 'btn-primary' %>
->>>>>>> upstream/master
+<%= f.input :email %>
+<%= f.input :password %>
+<%= f.button :button, :OK, class: 'btn-primary' %>
 <% end %>

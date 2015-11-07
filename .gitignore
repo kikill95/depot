@@ -15,4 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+<<<<<<< HEAD
 /.idea
+=======
+/coverage
+/config/database.yml
+>>>>>>> upstream/master

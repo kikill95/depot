@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_for @user, url: user_path, remote: true do |f| %>
     <p>
         <%= f.label :email, autofocus: true %>
@@ -17,4 +18,11 @@
         <%= f.password_field :password_confirmation %>
     </p>
     <%= f.submit :OK, data: { disable_with: 'Loading...' } %>
+=======
+<%= simple_form_for user, url: user_path, remote: true do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :button, :OK, class: 'btn-primary' %>
+>>>>>>> upstream/master
 <% end %>

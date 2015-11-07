@@ -1,0 +1,33 @@
+.menu {
+  width: 100%;
+  padding: 20px;
+  color: $mainColor;
+  background-color: $mainBackground;
+  p {
+    float: left;
+  }
+  a {
+    float: right;
+    color: $link;
+    &:hover {
+      color: $link_hovered;
+    }
+  }
+}
+.container {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: $mainColor;
+  background-color: $mainBackground;
+  a {
+    padding-left: 5px;
+    color: $link;
+    &:hover {
+      color: $link_hovered;
+    }
+  }
+}

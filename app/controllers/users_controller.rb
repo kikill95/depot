@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     render(:new) unless user.update(params.require(:user).permit!)
   end
 
+  def confirm
+
+  end
+
   private
 
   def user

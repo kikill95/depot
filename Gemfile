@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'simple_form'
 gem 'slim'
 gem 'slim-rails'
+gem 'sucker_punch', '~> 1.0'
 
 gem 'bcrypt', '~> 3.1.7'
 

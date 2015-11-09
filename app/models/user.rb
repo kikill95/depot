@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { in: 6..20 }
   validates :password_confirmation, length: { in: 6..20 }
+
 end

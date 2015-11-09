@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
+  include SuckerPunch::Job
+
   def create
-    render(:new) unless user.update(params.require(:user).permit!)
+    @verifier = ActiveSupport::MessageVerifier.new('secret')
+    if user.update(params.require(:user).permit!)
+      @user.token = @verifier.generate([@user.id])
+      @user.save
+    else
+      render(:new)
+    end
   end
 
-  def confirm
+  def confirm (token)
 
   end
 

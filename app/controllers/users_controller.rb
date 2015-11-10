@@ -5,18 +5,25 @@ class UsersController < ApplicationController
     @verifier = ActiveSupport::MessageVerifier.new('secret')
     if user.update(params.require(:user).permit!)
       @user.token = @verifier.generate([@user.id])
-      Job.new.async.perform(@user.email, @user.token)
+      Job.new.async.perform(@user)
       @user.save
     else
       render(:new)
     end
   end
 
-  def confirm
-    
+  def confirm(token)
+    @verifier = ActiveSupport::MessageVerifier.new('secret')
+    if verifier.verify(token)
+      confirm!
+    end  
   end
 
   private
+
+  def confirm!
+    @user.confirmed = true
+  end
 
   def user
     @user ||= User.new

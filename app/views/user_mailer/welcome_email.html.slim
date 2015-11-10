@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    meta[content="text/html; charset=UTF-8" http-equiv="Content-Type"]
+  body
+    h1
+      | It is a confirmation email
+    p 
+      | Just ignore this letter if it wasn't you request of registration on our web-site from this email:
+      = @user.email
+    = link_to 'Click here to activate account', @url

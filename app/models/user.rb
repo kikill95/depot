@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..20 }
   validates :password_confirmation, length: { in: 6..20 }
 
+  def confirmation!
+    UserMailer.welcome_email(self).deliver_now!
+  end
+
+  def confirm!
+    self.confirmed = true
+    save!(validate: false)
+  end
+
 end

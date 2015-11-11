@@ -12,6 +12,14 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: 'kirill.test.gus',
+    password: 'test123test',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   config.action_mailer.default_url_options = { host: "localhost:3000" }
 end

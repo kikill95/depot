@@ -18,6 +18,7 @@ gem 'slim-rails'
 gem 'sucker_punch', '~> 1.0'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'capybara'

@@ -12,5 +12,6 @@ html
           | You have signed in as&nbsp;
           = current_user.email
         = link_to 'Sign Out', session_path, method: :delete, remote: true
-    .container
-      = yield
+    - if !current_user
+      .container
+        = yield

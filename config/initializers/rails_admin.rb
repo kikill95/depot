@@ -10,11 +10,12 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   # config.authorize_with :cancan
-  # config.authenticate_with(&:authorised?)
 
   config.authorize_with do
     redirect_to main_app.root_path unless current_user
   end
+
+  config.excluded_models = ['User']
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0

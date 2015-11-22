@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).on('change', 'input#product_image', function(){
+$(document).on('change', 'input#product_image', function() {
   var input = this;
   var reader = new FileReader();
   reader.onload = function(e){
@@ -25,4 +25,4 @@ $(document).on('change', 'input#product_image', function(){
     $('#' + input.id + '_preview').attr('src', image_base64);
   };
   reader.readAsDataURL(input.files[0]);
-})
+});

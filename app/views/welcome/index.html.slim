@@ -3,5 +3,7 @@ div class='content'
   p Don't have an account?
   div
     = link_to 'Click here', new_user_path
-    ' - or -
+    |  - or - 
     = link_to 'Sign in', new_session_path
+    br
+    = link_to 'Shop', shop_items_path

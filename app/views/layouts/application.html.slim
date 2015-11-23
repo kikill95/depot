@@ -8,10 +8,14 @@ html
   body
     - if current_user
       = current_user.email
+      br
       = link_to 'Sign Out', session_path, method: :delete, remote: true
       .manage
-        =' link_to 'Products', admin_products_path
-        =' link_to 'Categories', admin_categories_path
+        = link_to 'Products', admin_products_path
+        br
+        = link_to 'Categories', admin_categories_path
+        br
+        = link_to 'Shop', shop_items_path
 
     = render 'shared/flashes'
     div class='container'

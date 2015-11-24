@@ -1,9 +1,30 @@
-div class='content'
-  h1 Hello!
-  p Don't have an account?
-  div
-    = link_to 'Click here', new_user_path
-    |  - or - 
-    = link_to 'Sign in', new_session_path
-    br
-    = link_to 'Shop', shop_items_path
+- if !current_user
+	div class='content'
+	  h1 Hello!
+	  p Don't have an account?
+	  div
+	    = link_to 'Click here', new_user_path
+	    |  - or - 
+	    = link_to 'Sign in', new_session_path
+
+h2 Shop
+.shop-list
+	ul#category-group.nav.nav-tabs.nav-stacked
+		- @items.each do |item|
+			li role="presentation"
+				a = item.title
+
+	ul#product-group
+		- products.each do |product|
+			li.product
+				.thumbnail
+	  				= image_tag product.image
+				.caption
+					h3 = product.name
+					p = product.description
+				.price
+					= product.price
+					| $
+				= link_to 'More info', welcome_path(product.id)
+
+.paginate = paginate products

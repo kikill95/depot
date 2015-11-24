@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :welcome
   resource :user
   resource :session, only: [:new, :create, :destroy]
   root 'welcome#index'
@@ -9,8 +10,5 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     resources :categories
-  end
-  namespace :shop do
-    resources :items, only: [:index, :show]
   end
 end

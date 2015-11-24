@@ -26,10 +26,3 @@ $(document).on('change', 'input#product_image', function() {
   };
   reader.readAsDataURL(input.files[0]);
 });
-$(document).on('ready', function () {
-	$('#category-group li a').click(function (e) {
-		e.preventDefault();
-		$(this).tab('show');
-	});
-});
-

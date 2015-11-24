@@ -12,10 +12,10 @@ h2 Shop
 	ul#category-group.nav.nav-tabs.nav-stacked
 		- @items.each do |item|
 			li role="presentation"
-				a = item.title
+				= link_to item.title, :controller => "welcome", :action => "index", :id => item.id
 
 	ul#product-group
-		- products.each do |product|
+		- @products.each do |product|
 			li.product
 				.thumbnail
 	  				= image_tag product.image
@@ -27,4 +27,4 @@ h2 Shop
 					| $
 				= link_to 'More info', welcome_path(product.id)
 
-.paginate = paginate products
+.paginate = paginate @products

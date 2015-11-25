@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :welcome
+  resources :welcome, only: [:index, :show, :search]
   resource :user
   resource :session, only: [:new, :create, :destroy]
   root 'welcome#index'

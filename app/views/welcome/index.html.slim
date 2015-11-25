@@ -8,11 +8,14 @@
 	    = link_to 'Sign in', new_session_path
 
 h2 Shop
+
 .shop-list
 	ul#category-group.nav.nav-tabs.nav-stacked
 		- @items.each do |item|
 			li role="presentation"
 				= link_to item.title, :controller => "welcome", :action => "index", :id => item.id
+		li role="presentation"
+			= link_to 'All', :controller => "welcome", :action => "index", :id => nil
 
 	ul#product-group
 		- @products.each do |product|

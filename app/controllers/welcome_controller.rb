@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   def index
     @session = Session.new
 	@items = Category.all
+	@searched_products = []
   	if params[:id]
   		@products = Category.find(params[:id]).products.page(params[:page]).per(10)
   	else

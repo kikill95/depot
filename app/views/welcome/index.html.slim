@@ -13,9 +13,9 @@ h2 Shop
 	ul#category-group.nav.nav-tabs.nav-stacked
 		- @items.each do |item|
 			li role="presentation"
-				= link_to item.title, :controller => "welcome", :action => "index", :id => item.id
+				= link_to item.title, :controller => 'welcome', :action => 'index', :id => item.id
 		li role="presentation"
-			= link_to 'All', :controller => "welcome", :action => "index", :id => nil
+			= link_to 'All', :controller => 'welcome', :action => 'index', :id => nil
 
 	ul#product-group
 		- @products.each do |product|

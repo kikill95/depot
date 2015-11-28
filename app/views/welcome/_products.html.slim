@@ -2,3 +2,6 @@
 - products.each_slice(4) do |group|
   .row
     = render partial: 'product', collection: group
+- if products.empty?
+  p
+    | No results

@@ -30,3 +30,7 @@ $(document).on('change', 'input#product_image', function(){
 $(document).on('keyup', '#_search', function(){
   $(this.form).trigger('submit.rails');
 })
+
+$(function () {
+  $('[data-toggle="popover"]').popover();
+})

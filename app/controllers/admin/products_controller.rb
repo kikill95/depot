@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  before_filter :authenticate
   expose :product
   expose(:products) { |default| default.page(params[:page]).per(10) }
 

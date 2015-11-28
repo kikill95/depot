@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :require_user
+  before_filter :authenticate
   expose :category
   expose(:categories) { |default| default.page(params[:page]).per(10) }
 

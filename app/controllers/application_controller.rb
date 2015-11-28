@@ -26,4 +26,12 @@ class ApplicationController < ActionController::Base
     flash[:warning] = 'Ooooops'
     redirect_to root_path
   end
+
+  protected
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == Rails.application.secrets.admin_user && password == Rails.application.secrets.admin_password
+    end
+  end
 end

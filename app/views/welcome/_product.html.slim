@@ -3,8 +3,23 @@
     = image_tag(product.image)
     .caption
 		h3 = product.name
-		p  = product.description
-		p  = number_to_currency(product.price)
-		button_to type="button" class="btn btn-lg btn-danger" data-toggle="popover" title=product.name data-content=product.description
+		p 	= product.description
+		p = number_to_currency(product.price)
+		button_to type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_#{{product.id}}"
 			| More info
 
+
+.modal.fade id="modal_#{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="#modal_lable_#{{product.id}}"
+	.modal-dialog role="document"
+		.modal-content
+			.modal-header
+				button_to type="button" class="close" data-dismiss="modal" aria-label="Close"
+					span aria-hidden="true"
+						| X
+				h4 class="modal-title" id="modal_lable_#{{product.id}}"
+					= product.name
+			.modal-body
+				= image_tag(product.image)
+				p = product.description
+			.modal-footer
+				p = number_to_currency(product.price)

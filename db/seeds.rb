@@ -21,10 +21,11 @@ titles.each { |i| Category.create(title: i) }
 
 #   Products should have name, description, image, price, category_id
 categories_ids = Category.pluck(:id)
-11.times do
+11.times do |ind|
   Product.create!(name:        Faker::Commerce.product_name,
                  description: Faker::Lorem.sentence,
                  remote_image_url:       Faker::Avatar.image.gsub('http', 'https'),
                  price:       Faker::Commerce.price,
                  category_id: categories_ids.sample)
+  puts "The #{ind} product has been created."
 end

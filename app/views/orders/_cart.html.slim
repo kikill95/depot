@@ -1,0 +1,18 @@
+.modal.cart.fade tabindex="-1" role = "dialog"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-label="Close"
+          | &times
+      - @elements.each do |el|
+        .modal-body
+          .row
+            .col-sm-2
+              = image_tag(el[:product].image, size: '75x75')
+            .col-sm-8
+              h4 = el[:product].name
+              .row
+                .col-sm-4
+                  h3 Cost:
+                .col-sm-4
+                  h3 = number_to_currency(el[:product].price)

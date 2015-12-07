@@ -1,0 +1,6 @@
+.container
+  .nav.nav-pills
+    = link_to orders_path, class: 'pull-right' do
+      | Cart
+      .glyphicon.glyphicon-shopping-cart
+      = session_products.length

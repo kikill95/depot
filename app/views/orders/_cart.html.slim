@@ -4,6 +4,8 @@
       .modal-header
         button.close type="button" data-dismiss="modal" aria-label="Close"
           | &times
+        h3.modal-title
+          = @elements.empty? ? 'There are no elements.' : 'Your cart consists this:'
       - @elements.each do |el|
         .modal-body
           .row

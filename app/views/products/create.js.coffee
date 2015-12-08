@@ -1,0 +1,1 @@
+$('.modal.product').modal('toggle')

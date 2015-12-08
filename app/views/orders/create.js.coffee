@@ -1,2 +1,2 @@
-$('.modal').modal('toggle')
+$('.modal.product').modal('toggle')
 $('.header').html("<%= j(render 'layouts/header') %>")

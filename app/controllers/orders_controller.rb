@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    return if session[:products].include? params[:id]
+    return if session[:products].select{ |el| el['id'] == params[:id] }.any?
     session[:products] << { id: params[:id], currency: 1 }
   end
 

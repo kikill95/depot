@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
   def index
     @elements = session_products.map { |product|
-      { product: Product.find(product['id']), currency: product['currency'] }
+      { product: Product.find(product['id']), quantity: product['quantity'] }
     }
   end
 
   def create
     return if session[:products].select{ |el| el['id'] == params[:id] }.any?
-    session[:products] << { id: params[:id], currency: 1 }
+    session[:products] << { id: params[:id], quantity: 1 }
   end
 
   def destroy

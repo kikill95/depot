@@ -9,6 +9,6 @@
       .col-sm-3
         h4 = number_to_currency(element[:product].price)
       .col-sm-3
-        h4 selectbox
+        = number_field_tag 'quantity_' + element[:product].id.to_s, element[:quantity], in: 1...11
       .col-sm-3
         h4 = link_to 'Delete', order_path(element[:product].id), method: :delete, remote: true

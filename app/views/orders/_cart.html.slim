@@ -6,15 +6,8 @@
           | &times
         h3.modal-title
           = @elements.empty? ? 'There are no elements.' : 'Your cart consists this:'
-      - @elements.each do |el|
-        .modal-body
-          .row
-            .col-sm-2
-              = image_tag(el[:product].image, size: '75x75')
-            .col-sm-8
-              h4 = el[:product].name
-              .row
-                .col-sm-4
-                  h3 Cost:
-                .col-sm-4
-                  h3 = number_to_currency(el[:product].price)
+      .modal-body
+        = render partial: 'element', collection: @elements
+      .modal-footer
+        - unless @elements.empty?
+          h2 Total price:

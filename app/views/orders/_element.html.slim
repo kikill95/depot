@@ -1,0 +1,14 @@
+.row
+  .col-sm-2
+    = image_tag(element[:product].image, size: '75x75')
+  .col-sm-10
+    h4 = element[:product].name
+    .row
+      .col-sm-3
+        h4 Cost:
+      .col-sm-3
+        h4 = number_to_currency(element[:product].price)
+      .col-sm-3
+        h4 selectbox
+      .col-sm-3
+        h4 = link_to 'Delete', order_path(element[:product].id), method: :delete, remote: true

@@ -11,5 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @elements = session[:products].select!{ |el| el['id'] != params[:id] }
   end
 end

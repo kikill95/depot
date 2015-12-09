@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resource :user
   resource :session, only: [:new, :create, :destroy]
   resources :products, only: [:show]
-  resources :orders, only: [:show, :destroy, :index] do
+  resources :orders, only: [ :index, :show, :update, :destroy] do
     patch ':id', to: :create, as: :cart, on: :collection
   end
 

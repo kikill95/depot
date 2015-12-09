@@ -10,4 +10,6 @@
         = render partial: 'element', collection: @elements
       .modal-footer
         - unless @elements.empty?
-          h2 Total price:
+          h2
+            | Total price:
+            span#total-price = total

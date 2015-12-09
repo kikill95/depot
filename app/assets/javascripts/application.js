@@ -17,16 +17,33 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).on('change', 'input#product_image', function(){
+$(document).on('change', 'input#product_image', function() {
   var input = this;
   var reader = new FileReader();
-  reader.onload = function(e){
-    image_base64 = e.target.result;
+  reader.onload = function(e) {
+    var image_base64 = e.target.result;
     $('#' + input.id + '_preview').attr('src', image_base64);
   };
   reader.readAsDataURL(input.files[0]);
-})
+});
 
-$(document).on('keyup', '#_search', function(){
+$(document).on('keyup', '#_search', function() {
   $(this.form).trigger('submit.rails');
-})
+});
+
+$(document).on('change', '.quantity input', function () {
+    var $input = $(this);
+    $.ajax({
+        type: 'PUT',
+        contentType: 'application/json; charset=utf-8',
+        url: '/orders/' + $input.attr('id').split('_')[1],
+        data : JSON.stringify({quantity: $input.val()}),
+        dataType: 'json',
+        success: function (result) {
+            $('#total-price').html(result.total);
+        },
+        error: function () {
+            console.log('something wrong!');
+        }
+    });
+});

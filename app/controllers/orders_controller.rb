@@ -10,9 +10,9 @@ class OrdersController < ApplicationController
   end
 
   def update
-    session[:products].find { |product| product['id'] == params[:id] }['quantity'] = params[:quantity]
+    updated_element(params[:id])['quantity'] = params[:quantity]
     session[:total] = calculate
-    render json: session
+    render json: { 'product': updated_element(params[:id]), 'total': session[:total] }
   end
 
   def destroy
@@ -26,6 +26,10 @@ class OrdersController < ApplicationController
   helper_method :total
 
   private
+
+  def updated_element(id)
+    session[:products].find { |product| product['id'] == id }
+  end
 
   def parser
     session_products.map do |product|

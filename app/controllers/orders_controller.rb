@@ -5,18 +5,18 @@ class OrdersController < ApplicationController
   end
 
   def create
-    return if session[:products].select{ |el| el['id'] == params[:id] }.any?
+    return if session[:products].select { |el| el['id'] == params[:id] }.any?
     session[:products] << { id: params[:id], quantity: 1 }
   end
 
   def update
-    session[:products].find{ |product| product['id'] == params[:id]}['quantity'] = params[:quantity]
+    session[:products].find { |product| product['id'] == params[:id] }['quantity'] = params[:quantity]
     session[:total] = calculate
     render json: session
   end
 
   def destroy
-    @elements = session[:products].select!{ |el| el['id'] != params[:id] }
+    @elements = session[:products].select! { |el| el['id'] != params[:id] }
   end
 
   def total
@@ -28,9 +28,9 @@ class OrdersController < ApplicationController
   private
 
   def parser
-    session_products.map { |product|
+    session_products.map do |product|
       { product: Product.find(product['id']), quantity: product['quantity'] }
-    }
+    end
   end
 
   def calculate

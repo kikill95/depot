@@ -31,19 +31,19 @@ $(document).on('keyup', '#_search', function() {
   $(this.form).trigger('submit.rails');
 });
 
-$(document).on('change', '.quantity input', function () {
-    var $input = $(this);
-    $.ajax({
+$(document).on('change', '.quantity input', calc);
+
+function calc() {
+    var $input = $(this),
+        total = 0;
+    $('.modal-body').find('.quantity').each(function() {
+        total += +$(this).attr('data-price') * +$(this).find('input').val();
+    });
+    $('#total-price').html(total.toFixed(2));$.ajax({
         type: 'PUT',
         contentType: 'application/json; charset=utf-8',
         url: '/orders/' + $input.attr('id').split('_')[1],
         data : JSON.stringify({quantity: $input.val()}),
-        dataType: 'json',
-        success: function (result) {
-            $('#total-price').html(result.total);
-        },
-        error: function () {
-            console.log('something wrong!');
-        }
+        dataType: 'json'
     });
-});
+}
